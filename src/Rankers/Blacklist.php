@@ -28,6 +28,14 @@ class Blacklist implements Converter
      */
     public function convert($words)
     {
-        return array_diff_key($words, $this->blacklist);
+        $blacklist = $this->blacklist;
+
+        $keys = array_keys($words);
+
+        foreach ($keys as $key)
+            if (in_array($key, $blacklist))
+                unset($words[$key]);
+
+        return $words;
     }
 }
