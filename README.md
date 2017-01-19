@@ -1,6 +1,8 @@
-****PHP Word Ranker****
+**PHP Word Ranker**
+
 
 `composer require usama-ashraf/wordranker`
+
 
 ```
 use Wordranker\Clients\WordRankerClient;
