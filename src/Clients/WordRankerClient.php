@@ -49,13 +49,20 @@ class WordRankerClient
      */
     public function rank()
     {
-        $words = $this->tokenizer->tokenize();
+        try {
 
-        $rankedWords = $this->initializeRanks($words);
+            $words = $this->tokenizer->tokenize();
 
-        $finalRankedWords = $this->ranker->run($rankedWords);
+            $rankedWords = $this->initializeRanks($words);
 
-        return $finalRankedWords;
+            $finalRankedWords = $this->ranker->run($rankedWords);
+
+            return $finalRankedWords;
+        }
+        catch (\Exception $exception) {
+
+            return $exception->getMessage();
+        }
     }
 
     /**
