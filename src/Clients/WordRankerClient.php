@@ -61,7 +61,7 @@ class WordRankerClient
         }
         catch (\Exception $exception) {
 
-            return $exception->getMessage();
+            die($exception->getTraceAsString());
         }
     }
 
