@@ -1,0 +1,16 @@
+{
+    "name": "usama/wordranker",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Usama Ashraf",
+            "email": "usama.ashraf@coeus-solutions.de"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Wordranker\\": "src/"
+        }
+    }
+}
