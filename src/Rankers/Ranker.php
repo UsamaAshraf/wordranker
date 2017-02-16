@@ -19,7 +19,7 @@ class Ranker
     public function __construct($blacklist, $regex)
     {
         $this->converters = [
-            new BlackList($blacklist),
+            new Blacklist($blacklist),
             new Matcher($regex)
         ];
     }
