@@ -20,7 +20,7 @@ class Ranker
     {
         $this->converters = [
             new Blacklist($blacklist),
-            new Matcher($regex)
+            //new Matcher($regex)
         ];
     }
 

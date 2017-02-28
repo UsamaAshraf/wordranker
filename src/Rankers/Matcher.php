@@ -4,7 +4,7 @@
 namespace Wordranker\Rankers;
 
 
-class Matcher
+class Matcher implements Converter
 {
 
     protected $regex;

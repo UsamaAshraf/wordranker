@@ -39,7 +39,7 @@ class WordRankerClient
 
         $this->baseRank = $baseRank;
 
-        $this->tokenizer = new Tokenizer($content);
+        $this->tokenizer = new Tokenizer($content, null, $regex);
 
         $this->ranker = new Ranker($blacklist, $regex);
     }

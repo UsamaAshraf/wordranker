@@ -13,16 +13,22 @@ class Tokenizer
     /** @var string */
     protected $delimiter;
 
+    /** @var string */
+    protected $regex;
+
+
     /**
      * Tokenizer constructor.
      *
      * @param $text string
      * @param $delimiter string
+     * @param null $regex
      */
-    public function __construct($text, $delimiter = ' ')
+    public function __construct($text, $delimiter = ' ', $regex = null)
     {
         $this->text = $text;
         $this->delimiter = $delimiter;
+        $this->regex = $regex;
     }
 
     /**
@@ -32,6 +38,12 @@ class Tokenizer
      */
     public function tokenize()
     {
-        return explode($this->delimiter, $this->text);
+        if (empty($this->regex))
+            return explode($this->delimiter, $this->text);
+
+        $matches = [];
+        preg_match($this->regex, $this->text, $matches);
+
+        return $matches;
     }
 }
