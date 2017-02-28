@@ -42,8 +42,12 @@ class Tokenizer
             return explode($this->delimiter, $this->text);
 
         $matches = [];
-        preg_match($this->regex, $this->text, $matches);
+        $result = [];
 
-        return $matches;
+        preg_match_all($this->regex, $this->text, $matches);
+
+        array_walk_recursive($matches, function($a) use (&$result) { $result[] = $a; });
+
+        return $result;
     }
 }
