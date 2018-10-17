@@ -76,8 +76,12 @@ class WordRankerClient
         $result = [];
         $baseRank = $this->baseRank;
 
-        foreach ($words as $word)
-            $result[$word] = $baseRank;
+        foreach ($words as $word) {
+            if (isset($result[$word])) {
+                $result[$word] = $baseRank;
+            }
+            $result[$word] = $result[$word] + 1;
+        }
 
         return $result;
     }
